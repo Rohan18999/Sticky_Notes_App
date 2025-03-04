@@ -1,0 +1,23 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(230, 226, 226);
+    padding:20px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#add-note{
+    font-size: 14px;
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    cursor:pointer;
+    background-color: rgb(0, 115, 255);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    color: white;
+}
+.note{
+    background-color: yellow;
+}
