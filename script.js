@@ -1,9 +1,6 @@
 let notesButton = document.getElementById('add-note');
 let notesContainer = document.getElementById('notes-container')
 let notesList = JSON.parse(localStorage.getItem('notesList')) || [];
-index = 0
-
-
 
 notesButton.addEventListener("click" ,() =>{
     notesPush()
@@ -14,26 +11,32 @@ function saveNotes(){
 }
 
 function notesPush(){
-    let noteElement = createNoteElement(index)
-    notesContainer.appendChild(noteElement);
-    notesList.push(noteElement)
-    index+=1
+    let noteData = {text: ""};
+    notesList.push(noteData);
+    display();
 }
 // It display's the element in notesList
 function display(){
     notesContainer.innerHTML = ''
-    notesList.forEach( (note) => {
-        notesContainer.appendChild(note);
+    notesList.forEach( (note,index) => {
+        let noteElement = createNoteElement(note,index)
+        notesContainer.appendChild(noteElement);
     });
     saveNotes();
 }
-function createNoteElement(){
+function createNoteElement(noteData,index){
     let noteDiv = document.createElement('div');
     noteDiv.classList.add('note');
 
     let textArea = document.createElement('textarea')
     textArea.placeholder = "Write your note here..."
     textArea.classList.add('note-area');
+    textArea.value = noteData.text
+
+    textArea.addEventListener("input", () =>{
+        notesList[index].text = textArea.value;
+        saveNotes();
+    })
 
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'X';
@@ -43,7 +46,6 @@ function createNoteElement(){
         if (noteIndex !== -1){
             notesList.splice(noteIndex,1);
             display();
-            saveNotes();
         }
     });
 
