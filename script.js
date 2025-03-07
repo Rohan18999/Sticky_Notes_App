@@ -1,56 +1,62 @@
-let notesButton = document.getElementById('add-note');
-let notesContainer = document.getElementById('notes-container')
-let notesList = JSON.parse(localStorage.getItem('notesList')) || [];
+let btn = document.getElementById('add-note');
+let notesContainer = document.getElementById('notes-container');
+const notesList = JSON.parse(localStorage.getItem("note")) || [];
 
-notesButton.addEventListener("click" ,() =>{
-    notesPush()
-} );
+window.addEventListener("load", () =>{
+    notesList.forEach(text => {
+        let noteElement = createNoteElement(text)
+        notesContainer.appendChild(noteElement)
+    })
+})
 
-function saveNotes(){
-    localStorage.setItem('notesList', JSON.stringify(notesList));
+btn.addEventListener("click" , () =>{
+    pushNotes("")
+})
+
+function saveContent(){
+    const notesText = Array.from(document.querySelectorAll("textarea")).map(textarea => textarea.value);
+    localStorage.setItem("note", JSON.stringify(notesText));
 }
 
-function notesPush(){
-    let noteData = {text: ""};
-    notesList.push(noteData);
-    display();
-}
-// It display's the element in notesList
-function display(){
-    notesContainer.innerHTML = ''
-    notesList.forEach( (note,index) => {
-        let noteElement = createNoteElement(note,index)
-        notesContainer.appendChild(noteElement);
-    });
-    saveNotes();
-}
-function createNoteElement(noteData,index){
-    let noteDiv = document.createElement('div');
-    noteDiv.classList.add('note');
+function pushNotes(text){
+    let noteElement = createNoteElement(text);
+    notesContainer.appendChild(noteElement);
+    notesList.push(text) // store only the text 
+    console.log(notesList)
+    saveContent();
 
-    let textArea = document.createElement('textarea')
-    textArea.placeholder = "Write your note here..."
-    textArea.classList.add('note-area');
-    textArea.value = noteData.text
+}
+function createNoteElement(text = ""){
+    let divNote = document.createElement("div");
+    divNote.classList.add('div-note')
 
-    textArea.addEventListener("input", () =>{
-        notesList[index].text = textArea.value;
-        saveNotes();
+    let textArea = document.createElement("textarea")
+    textArea.classList.add('text-area')
+    //textArea.placeholder = "Write your note here..."
+    textArea.value = text // store stored text
+
+    textArea.addEventListener("input",saveContent) // Save when text changes
+
+    let deleteButton = document.createElement("button")
+    deleteButton.classList.add('delete-button')
+    deleteButton.textContent = "X"
+    deleteButton.addEventListener("click", () => {
+
+        // deleting the entire Note / divNote
+        divNote.remove()
+
+        // removing from notesList as well
+        const index = notesList.indexOf(divNote);
+        if (index!=-1){
+            notesList.splice(index,1);
+        }
+        // consoling again after deletion
+        console.log(notesList);
+        saveContent();
     })
 
-    let deleteButton = document.createElement('button');
-    deleteButton.textContent = 'X';
-    deleteButton.classList.add('delete-note');
-    deleteButton.addEventListener("click", () =>{
-        let noteIndex = notesList.indexOf(noteDiv);
-        if (noteIndex !== -1){
-            notesList.splice(noteIndex,1);
-            display();
-        }
-    });
+    divNote.appendChild(textArea)
+    divNote.appendChild(deleteButton)
 
-    noteDiv.append(textArea);
-    noteDiv.append(deleteButton);
-
-    return noteDiv;
+    return divNote
 }
