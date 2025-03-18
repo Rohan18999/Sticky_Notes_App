@@ -3,7 +3,7 @@
 
 A lightweight web application that allows you to create, edit, and delete sticky notes. Notes are stored in your browser’s local storage, so they persist between sessions.
 
-Features
+# Features
 
 Add New Note: Click the “Add Note” button to create a new sticky note.
 Edit Notes: Type directly into each note; changes are saved automatically.
@@ -11,14 +11,14 @@ Delete Notes: Remove a note by clicking the “X” button.
 Local Storage: Notes persist across page reloads because they’re stored in local storage.
 Getting Started
 
-Clone or Download the Repository
+# Clone or Download the Repository
 git clone https://rohan18999.github.io/Sticky_Notes_App/
 Or simply download the ZIP and extract it.
 Open index.html
 Navigate to the project folder and double-click index.html to open it in your web browser.
 That’s it! The app will load, and you can start creating sticky notes immediately.
 
-Project Structure
+# Project Structure
 
 .
 ├── index.html     # Main HTML file
