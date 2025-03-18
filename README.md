@@ -19,9 +19,9 @@ Navigate to the project folder and double-click index.html to open it in your we
 That’s it! The app will load, and you can start creating sticky notes immediately.
 
 # Project Structure
-├── index.html     # Main HTML file
-├── styles.css     # Basic styling for the notes
-└── script.js      # Handles adding, deleting, and saving notes to local storage usage
+├── index.html  =>   # Main HTML file
+├── styles.css  =>   # Basic styling for the notes
+└── script.js   =>   # Handles adding, deleting, and saving notes to local storage usage
 
 
 Add Note: Click the “Add Note” button.
