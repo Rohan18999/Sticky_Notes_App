@@ -5,10 +5,10 @@ A lightweight web application that allows you to create, edit, and delete sticky
 
 # Features
 
-Add New Note: Click the “Add Note” button to create a new sticky note.
-Edit Notes: Type directly into each note; changes are saved automatically.
-Delete Notes: Remove a note by clicking the “X” button.
-Local Storage: Notes persist across page reloads because they’re stored in local storage.
+**Add New Note**: Click the “Add Note” button to create a new sticky note.
+**Edit Notes**: Type directly into each note; changes are saved automatically.
+**Delete Notes**: Remove a note by clicking the “X” button.
+**Local Storage**: Notes persist across page reloads because they’re stored in local storage.
 Getting Started
 
 # Clone or Download the Repository
@@ -21,16 +21,16 @@ That’s it! The app will load, and you can start creating sticky notes immediat
 # Project Structure
 ├── index.html  =>   # Main HTML file
 ├── styles.css  =>   # Basic styling for the notes
-└── script.js   =>   # Handles adding, deleting, and saving notes to local storage usage
+├── script.js   =>   # Handles adding, deleting, and saving notes to local storage usage
 
 
-Add Note: Click the “Add Note” button.
-Edit Note: Type directly in the note’s text area; changes are saved automatically.
-Delete Note: Click the “X” in the top-right corner of a note to remove it.
+**Add Note**: Click the “Add Note” button.
+**Edit Note**: Type directly in the note’s text area; changes are saved automatically.
+**Delete Note**: Click the “X” in the top-right corner of a note to remove it.
 Customization
 
-Styling: Modify styles.css to change colors, fonts, or layout.
-Functionality: Update script.js if you want to add new features or alter how notes are stored.
+**Styling**: Modify styles.css to change colors, fonts, or layout.
+**Functionality**: Update script.js if you want to add new features or alter how notes are stored.
 Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests:
