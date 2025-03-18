@@ -1,6 +1,5 @@
-Below is a simple, straightforward README you can use for your Sticky Notes App. Feel free to adjust any parts to match your preferences or project structure.
 
-Sticky Notes App
+# Sticky_Notes_App
 
 A lightweight web application that allows you to create, edit, and delete sticky notes. Notes are stored in your browser’s local storage, so they persist between sessions.
 
@@ -13,7 +12,7 @@ Local Storage: Notes persist across page reloads because they’re stored in loc
 Getting Started
 
 Clone or Download the Repository
-git clone https://github.com/your-username/sticky-notes-app.git
+git clone https://rohan18999.github.io/Sticky_Notes_App/
 Or simply download the ZIP and extract it.
 Open index.html
 Navigate to the project folder and double-click index.html to open it in your web browser.
